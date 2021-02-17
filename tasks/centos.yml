@@ -35,6 +35,13 @@
     - lv.1.create is defined
     - lv.1.create|bool
 
+- name: centos | install gdisk
+  package:
+    name: gdisk
+  become: true
+  when:
+    - manage_disks | bool
+
 - name: centos | checking for scsi devices
   command: sg_scan
   become: true
