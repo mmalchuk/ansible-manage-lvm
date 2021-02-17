@@ -42,6 +42,13 @@
   when:
     - manage_disks | bool
 
+- name: centos | install parted
+  package:
+    name: parted
+  become: true
+  when:
+    - manage_disks | bool
+
 - name: centos | checking for scsi devices
   command: sg_scan
   become: true
